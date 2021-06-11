@@ -1,0 +1,168 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <form #userForm="ngForm" (ngSubmit)="addUser(userForm)">
+
+          <input type="hidden" name="_id" [(ngModel)]="userService.selectedUser._id">
+          
+          <div class="form-group">
+            <label for="name">Nombre</label>
+            <input
+              name="name"
+              type="text"
+              class="form-control"
+              id="name"
+              required
+              placeholder="Escribe tu nombre"
+              [(ngModel)]="userService.selectedUser.name"
+            />
+          </div>
+          <div class="form-group">
+            <label for="surname">Apellido/s</label>
+            <input
+              name="surname"
+              type="text"
+              class="form-control"
+              id="surname"
+              required
+              placeholder="Escribe tu/s apellido/s"
+              [(ngModel)]="userService.selectedUser.surname"
+            />
+          </div>
+          <div class="form-group">
+            <label for="age">Edad</label>
+            <input
+              type="number"
+              class="form-control"
+              id="age"
+              min="1"
+              max="125"
+              required
+              name="age"
+              title="Debe poner del 1 al 125"
+              placeholder="Escribe tu edad"
+              [(ngModel)]="userService.selectedUser.age"
+            />
+          </div>
+          <div class="form-group">
+            <label for="dni">DNI</label>
+            <input
+              type="text"
+              class="form-control"
+              maxlength="9"
+              size="9"
+              id="dni"
+              name="dni"
+              required
+              pattern="(([X-Z]{1})([-]?)(\d{7})([-]?)([A-Z]{1}))|((\d{8})([-]?)([A-Z a-z]{1}))"
+              title="Debe poner 8 números y una letra"
+              placeholder="Escribe tu DNI"
+              [(ngModel)]="userService.selectedUser.dni"
+            />
+          </div>
+          <div class="form-group">
+            <label for="bday">Fecha de nacimiento</label>
+            <input
+              class="form-control"
+              type="date"
+              id="bday"
+              placeholder="Fecha de nacimiento"
+              name="bday"
+              max="2021-01-01"
+              min="1900-12-31"
+              required
+              placeholder="Fecha de nacimiento"
+              [(ngModel)]="userService.selectedUser.bday"
+            />
+          </div>
+          <div class="form-group">
+            <p>Introduce el color por texto o selecciona color en la banda</p>
+            <label for="myColor">Color favorito</label>
+            <input
+              name="favColor"
+              class="form-control color-picker"
+              required
+              type="text"
+              id="myColor"
+              pattern="^#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$"
+              placeholder="#FF0000 or #F00"
+              [(ngModel)]="userService.selectedUser.favColor"
+            />
+
+            <label for="secondColor">Banda de color</label>
+            <input
+              name="favColor"
+              class="color-picker2"
+              type="color"
+              id="secondColor"
+              value="#ffffff"
+              pattern="^#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$"
+              placeholder="#FF0000 or #F00"
+              [(ngModel)]="userService.selectedUser.favColor"
+            />
+            <div class="form-group">
+              <label for="sex">Sexo</label>
+              <select
+                id="sexo"
+                required
+                name="sex"
+                [(ngModel)]="userService.selectedUser.sex"
+              >
+                <option>Mujer</option>
+                <option>Hombre</option>
+                <option>No binario</option>
+                <option>No me identifico con ninguno de los descritos</option>
+                <!-- <option *ngFor="let sexo of sex; let i = index" [value]="sexo"> -->
+                <!-- {{ sex[i] }} -->
+              </select>
+            </div>
+          </div>
+          <button class="btn btn-secondary m-2" (click)="resetForm(userForm)">
+            Borrar
+          </button>
+          <button class="btn btn-primary">Guardar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Índice</th>
+          <th>Nombre</th>
+          <th>Apellidos</th>
+          <th>Edad</th>
+          <th>DNI</th>
+          <th>Fecha de nacimiento</th>
+          <th>Color favorito</th>
+          <th>Sexo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of userService.users; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ user.name | uppercase }}</td>
+          <td>{{ user.surname | uppercase }}</td>
+          <td>{{ user.age }}</td>
+          <td>{{ user.dni }}</td>
+          <td>{{ user.bday | date: "mediumDate" }}</td>
+          <td>{{ user.favColor }}</td>
+          <td>{{ user.sex }}</td>
+          <td class="buttons">
+            <button class="btn btn-sm btn-primary" (click)="editUser(user)">
+              <i class="material-icons">edit</i>
+            </button>
+            <button
+              class="btn btn-sm btn-danger"
+              (click)="deleteUser(user._id)"
+            >
+              <i class="material-icons">delete</i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

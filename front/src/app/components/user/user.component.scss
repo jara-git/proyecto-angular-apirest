@@ -1,0 +1,26 @@
+.form-group {
+  margin-bottom: 1.5rem;
+  label {
+    margin-bottom: 0.5rem;
+  }
+  input[type="color" i] {
+    margin: 1rem;
+    width: 100px;
+  }
+}
+
+.col-md-8 {
+  flex: 0 0 auto;
+  width: 66.666667%;
+  border: 1px solid #dedbdb;
+  border-radius: 5px;
+
+  th {
+    width: 300px;
+    text-align: center;
+  }
+  td {
+    width: 300px;
+    text-align: center;
+  }
+}

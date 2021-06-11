@@ -1,0 +1,38 @@
+//archivo para probar las rutas, sustituto de postman
+###
+
+GET http://localhost:4000/api/users  
+
+###
+POST http://localhost:4000/api/users  
+Content-Type: application/json
+
+{
+    "name": "Marina", 
+    "surname": "Pérez", 
+    "age": "30", 
+    "dni": "36921480-N", 
+    "bday": "December 17, 1991 03:24:00", 
+    "favColor": "azul", 
+    "sex": "mujer"
+}
+
+###
+GET http://localhost:4000/api/users/60bf3ad40580330933203759
+
+###
+PUT http://localhost:4000/api/users/60bf3ad40580330933203759
+Content-Type: application/json
+
+{
+    "name": "Mariana", 
+    "surname": "Oliva", 
+    "age": "32", 
+    "dni": "36921480-N", 
+    "bday": "December 17, 1989 03:24:00", 
+    "favColor": "verde", 
+    "sex": "no binario"
+}
+
+### 
+DELETE http://localhost:4000/api/users/60bf3ad40580330933203759
