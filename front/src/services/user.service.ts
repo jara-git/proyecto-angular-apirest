@@ -10,16 +10,18 @@ export class UserService {
   URL_API = 'http://localhost:4000/api/users'
   
 
-  sex = ['Mujer', 'Hombre',
+  sex_values = ['Mujer', 'Hombre',
     'No binario', 'No me identifico con ninguno de los descritos'];
   
   users: Array<User> = [];
 
+    
   selectedUser: User = {
     name: "",
     surname: "",
     age: 0,
     dni: "",
+    // bday: new Date().toISOString().slice(0, 10),
     bday: new Date(),
     favColor: "",
     sex: "",

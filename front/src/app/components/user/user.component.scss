@@ -24,3 +24,10 @@
     text-align: center;
   }
 }
+input:invalid {
+  border: 1px dashed red;
+}
+
+input:valid {
+  border: 2px solid #1fbae98c;
+}

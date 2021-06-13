@@ -13,6 +13,18 @@ export class UserComponent implements OnInit {
 
   constructor(public userService: UserService) { }
 
+    sex = ['Mujer', 'Hombre',
+            'No binario', 'No me identifico con ninguno de los descritos'];
+
+    user: User = {
+    name: '',
+    surname: '',
+    age: 0,
+    dni: '',
+    bday: new Date(),
+    favColor : '',
+    sex : ''
+  };
 
   ngOnInit(): void {
     this.getUsers();
