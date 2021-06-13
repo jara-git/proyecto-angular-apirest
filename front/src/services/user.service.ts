@@ -15,14 +15,15 @@ export class UserService {
   
   users: Array<User> = [];
 
-    
+  
+
   selectedUser: User = {
     name: "",
     surname: "",
     age: 0,
     dni: "",
-    // bday: new Date().toISOString().slice(0, 10),
-    bday: new Date(),
+    bday: new Date().toISOString().slice(0, 10)+'Z',
+    // bday: new Date(),
     favColor: "",
     sex: "",
     _id: ""

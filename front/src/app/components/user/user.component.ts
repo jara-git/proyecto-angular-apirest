@@ -21,7 +21,7 @@ export class UserComponent implements OnInit {
     surname: '',
     age: 0,
     dni: '',
-    bday: new Date(),
+    bday: new Date().toISOString(),
     favColor : '',
     sex : ''
   };

@@ -3,7 +3,7 @@ export interface User {
   surname: string;
   age: number;
   dni: string;
-  bday: Date;
+  bday: string;
   favColor: string;
   sex: string;
   _id?: any;

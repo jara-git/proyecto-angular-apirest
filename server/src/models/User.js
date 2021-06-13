@@ -33,6 +33,9 @@ const userSchema = new Schema(
         bday: {
             type: Date,
             required: true,
+            set: function (v) {
+                return new Date(v.getFullYear(), v.getMonth(), v.getDate());
+            }
         },
         favColor: {
             type: String,
