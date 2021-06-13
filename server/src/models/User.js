@@ -23,7 +23,7 @@ const userSchema = new Schema(
             type: Number,
             required: true,
             min: 1,
-            max: [110, 'la edad no puede ser mayor que 110']
+            max: [125, 'la edad no puede ser mayor que 110']
         },
         dni: {
             type: String,
